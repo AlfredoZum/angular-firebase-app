@@ -26,11 +26,12 @@ export class TeamTableComponent implements OnInit {
     this.teams$ = this.teamService.getTeams();
     this.teamService.getTeams().pipe( take(1) ).subscribe( teams => {
       if ( teams.length === 0 ){
-        const team : Team = {
-          name: 'MyAmazingTeam',
+        const team: Team = {
+          name: 'TeamFredo',
           country: Countries.Mexico,
           players: null,
         };
+        this.teamService.addTeam( team );
       }
     });
   }
